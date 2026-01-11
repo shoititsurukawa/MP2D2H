@@ -46,6 +46,14 @@ Contains scripts to compute power spectral density (PSD).
 
 Note: In both folders and scripts, the term "check" is used for intermediate verification and debugging purposes and may be ignored.
 
+## Large Simulation Data
+
+All large simulation result files (*.mat) are not stored in this repository to keep it lightweight.
+
+They can be downloaded here:  
+https://drive.google.com/drive/folders/1_6boFFSlS5dwLmLvH2FhozGtIjMzG6KJ?usp=sharing
+
+
 ## Software and Environment
 
 MATLAB Version: 9.6.0.1072779 (R2019a)  
