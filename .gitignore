@@ -2,6 +2,9 @@
 *.csv
 *.pwl
 
+# MATLAB data files (kept in external storage)
+*.mat
+
 # Auto-generated MATLAB publish reports and figures
 *.html
 *.png
