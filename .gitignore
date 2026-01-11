@@ -1,0 +1,17 @@
+# Raw Cadence waveform and piecewise-linear files
+*.csv
+*.pwl
+
+# Auto-generated MATLAB publish reports and figures
+*.html
+*.png
+
+# MATLAB temporary, cache, and compiled files
+*.asv
+*.fig
+*.slxc
+*.mex*
+
+# Operating system metadata files
+.DS_Store
+Thumbs.db
