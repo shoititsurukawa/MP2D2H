@@ -2,8 +2,6 @@
 
 The goal of this workflow is to compare PA performance with and without DPD under the same output power condition. This is required to ensure a fair comparison of efficiency and PAE metrics.
 
-### Execution Order
-
 1. With DPD case
    
    f7_metrics_pae  >  f1_dpd
