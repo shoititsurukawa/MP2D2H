@@ -13,7 +13,7 @@ First we are going to check if the squematic and maestro settings are correct in
 
 ## f2_check_resample
 
-During all resample operation until this moment was used the function interp1 with the linear method. But during the development i got a considerable EVM just with the modulation and demodulation, passing by no PA. After a lot of tests, i grew suspition in the resample process, so i will test with 2 methods.
+Until this point, all resampling operations have been performed using the interp1 function with the linear interpolation method. However, during development, a significant EVM was observed even when only the modulation and demodulation stages were applied, without passing through the PA. After extensive testing, the resampling stage became a primary suspect. Therefore, two alternative resampling methods are evaluated and compared in the following tests.
 
 ### f2_linear
 
@@ -28,3 +28,12 @@ During all resample operation until this moment was used the function interp1 wi
 |----------|---------------------------|-----------|
 | LTE      |  1.04 ks (17m  18.6s)     | 37.6051 m |
 | WLAN11N  |  796 s (13m  15.5s)       | 56.6352 m |
+
+## f3_check_mod_demod
+
+Based on the previous results, the modulation and demodulation stages were reimplemented with the interpolation method changed from linear to makima.
+
+| Signal   | Elapsed Time (Wall Clock) | EVM (%)   |
+|----------|---------------------------|-----------|
+| LTE      |  1.03 ks (17m  8.8s)      | 39.156 m  |
+| WLAN11N  |  795 s (13m  15.5s)       | 55.4521 m |

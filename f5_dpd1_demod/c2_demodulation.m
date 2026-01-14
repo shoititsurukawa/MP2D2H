@@ -56,8 +56,7 @@ max_s1_out = max(abs(signal_1_out))
 max_s2_out = max(abs(signal_2_out))
 
 %% Save results
-script_folder = fileparts(mfilename('fullpath'));
-mat_filename = fullfile(script_folder, 'pa_data.mat');
+mat_filename = fullfile(current_folder, 'pa_data.mat');
 
 save(mat_filename, 'time_baseband', ...
     'signal_1_in', 'signal_2_in', ...
