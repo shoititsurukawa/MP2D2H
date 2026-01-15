@@ -37,3 +37,19 @@ Based on the previous results, the modulation and demodulation stages were reimp
 |----------|---------------------------|-----------|
 | LTE      |  1.03 ks (17m  8.8s)      | 39.156 m  |
 | WLAN11N  |  795 s (13m  15.5s)       | 55.4521 m |
+
+## f4_check_dpd_pa
+
+In this part the DPD was implemented, and the signal was passed in the PA. Previously, EVM was computed using the complete WLAN11N frame of 1 ms, corresponding to 241 data symbols. To reduce simulation time, the analysis is now restricted to the first 80 µs of the frame, corresponding to 11 data symbols, which significantly accelerates the Cadence simulations.
+
+| Parameter                 | Value                   |
+|---------------------------|-------------------------|
+| Signal duration           | 80 µs                   |
+| Maximum amplitude         | 0.0209                  |
+| Elapsed time (wall clock) | 17.3 ks (4 h 48 m 31 s) |
+| Storage usage             | 24 GB                   |
+
+| Signal   | Elapsed Time (Wall Clock) | EVM (%)   |
+|----------|---------------------------|-----------|
+| WLAN11N  |  52.5 s                   | 661.138 m |
+
