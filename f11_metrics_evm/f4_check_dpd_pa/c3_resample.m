@@ -1,4 +1,4 @@
-%% c1_resample.m
+%% c3_resample.m
 %{
 Description:
   Resamples the Cadence data to a constant sampling rate of in the

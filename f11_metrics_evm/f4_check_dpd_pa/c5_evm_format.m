@@ -1,4 +1,4 @@
-%% c4_evm_format.m
+%% c5_evm_format.m
 %{
 Description:
   This script will resample back the baseband signal to the same time

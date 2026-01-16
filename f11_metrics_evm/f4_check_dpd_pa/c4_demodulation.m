@@ -1,4 +1,4 @@
-%% c3_demodulation.m
+%% c4_demodulation.m
 %{
 Description:
   This script implements the demodulation stage for a dual-band system. 
