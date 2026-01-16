@@ -53,3 +53,11 @@ In this part the DPD was implemented, and the signal was passed in the PA. Previ
 |----------|---------------------------|-----------|
 | WLAN11N  |  52.5 s                   | 661.138 m |
 
+## f5_check_split
+
+This stage follows the same procedure as f4_check_dpd_pa. However, instead of performing the simulation in a single run, the process is split into four segments, which are simulated independently and then recombined.
+
+| Signal   | Elapsed Time (Wall Clock) | EVM (%)   |
+|----------|---------------------------|-----------|
+| WLAN11N  |  53 s                     | 673.407 m |
+
