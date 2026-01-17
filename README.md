@@ -48,6 +48,9 @@ Contains scripts used to adjust and equalize output power levels.
  - f10_metrics_psd
 Contains scripts to compute power spectral density (PSD).
 
+- f11_metrics_evm
+Contains scripts to compute error vector magnitude (EVM).
+
 Note: In both folders and scripts, the term "check" is used for intermediate verification and debugging purposes and may be ignored.
 
 ## Large Simulation Data
@@ -57,6 +60,15 @@ All large simulation result files (*.mat) are not stored in this repository to k
 They can be downloaded here:  
 https://drive.google.com/drive/folders/1_6boFFSlS5dwLmLvH2FhozGtIjMzG6KJ?usp=sharing
 
+## Project Design Philosophy
+
+This project intentionally contains a significant amount of redundant code with minor variations across scripts and folders.
+
+This design choice was made deliberately to prioritize clarity, ease of understanding, development, and reproducibility of results, rather than code optimization or reuse. Each script and folder represents a well-defined experiment, check, or processing stage, allowing individual steps to be inspected, modified, and rerun independently.
+
+This approach is especially prevalent in:
+- Check scripts and folders, which are primarily used for debugging and validation.
+- Cadence simulation cells, where similar configurations are duplicated with small changes to isolate specific effects or operating conditions.
 
 ## Software and Environment
 
