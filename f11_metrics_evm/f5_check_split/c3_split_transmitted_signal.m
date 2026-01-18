@@ -18,7 +18,7 @@ clear; clc; close all;
 tic
 
 %% Parameters
-num_of_parts = 12;
+num_of_parts = 6;
 overlap = 100e3;
 
 %% Import data

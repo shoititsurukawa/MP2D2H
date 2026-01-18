@@ -15,14 +15,7 @@
 - c7_pa_trans_part2
 - c7_pa_trans_part3
 - c7_pa_trans_part4
-- c7_pa_trans_part5
-- c7_pa_trans_part6
-- c7_pa_trans_part7
-- c7_pa_trans_part8
-- c7_pa_trans_part9
-- c7_pa_trans_part10
-- c7_pa_trans_part11
-- c7_pa_trans_part12
+- ...
 
 Note:
 - Verify in the schematic that the correct input file is selected for each segment.  

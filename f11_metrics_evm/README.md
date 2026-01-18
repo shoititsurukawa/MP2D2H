@@ -57,24 +57,20 @@ In this part the DPD was implemented, and the signal was passed in the PA. Previ
 
 This stage follows the same procedure as f4_check_dpd_pa. However, instead of performing the simulation in a single run, the process is split into four segments, which are simulated independently and then recombined.
 
-### Test: Splitting into 4 Segments
+### Test: Splitting into Segments
 
-| Signal   | Elapsed Time (Wall Clock) | EVM (%)   |
-|----------|---------------------------|-----------|
-| WLAN11N  |  53 s                     | 673.407 m |
+| Signal   | num_of_parts | EVM (%)   |
+|----------|--------------|-----------|
+| WLAN11N  |  4           | 673.407 m |
+| WLAN11N  |  6           | 647.426 m |
+| WLAN11N  |  12          | 2.19402   |
 
-### Test: Splitting into 12 Segments
+Note: Only the first 80 µs of the frame is used in these tests.
 
-| Number of data symbols | envTime (µs) | EVM (%)   |
-|------------------------|--------------|-----------|
-| 1                      | 40           | 642.138 m |
-| 2                      | 44           | 735.251 m |
-| 3                      | 48           | 1.9594    |
-| 4                      | 52           | 2.47197   |
-| 5                      | 56           | 2.500044  |
-| 6                      | 60           | 2.51064   |
-| 7                      | 64           | 2.45221   |
-| 8                      | 68           | 2.38298   |
-| 9                      | 72           | 2.31194   |
-| 10                     | 76           | 2.25341   |
-| 11                     | 80           | 2.19402   |
+### Segmentation Trade-offs and Constraints
+
+In the next step, the goal is to process the full 1 ms frame using segmented simulations. When using only 4 segments, the simulation time of the first segment was excessively long. Since the compute server automatically resets every 24 hours, it was not possible to complete even a single simulation segment.
+
+To address this, the signal was further split into a larger number of segments (12). However, before committing to a long full-frame simulation, the segmentation approach was re-evaluated using the shorter 80 µs signal. This test revealed a significant degradation in EVM as the number of segments increased, indicating that a higher number of segments introduces additional numerical distortion.
+
+Based on this observation, the next simulations will be performed using 6 segments, which represents a compromise between simulation time and numerical accuracy. This configuration is expected to complete within the 24-hour limit while avoiding excessive degradation due to segmentation.
