@@ -57,7 +57,24 @@ In this part the DPD was implemented, and the signal was passed in the PA. Previ
 
 This stage follows the same procedure as f4_check_dpd_pa. However, instead of performing the simulation in a single run, the process is split into four segments, which are simulated independently and then recombined.
 
+### Test: Splitting into 4 Segments
+
 | Signal   | Elapsed Time (Wall Clock) | EVM (%)   |
 |----------|---------------------------|-----------|
 | WLAN11N  |  53 s                     | 673.407 m |
 
+### Test: Splitting into 12 Segments
+
+| Number of data symbols | envTime (µs) | EVM (%)   |
+|------------------------|--------------|-----------|
+| 1                      | 40           | 642.138 m |
+| 2                      | 44           | 735.251 m |
+| 3                      | 48           | 1.9594    |
+| 4                      | 52           | 2.47197   |
+| 5                      | 56           | 2.500044  |
+| 6                      | 60           | 2.51064   |
+| 7                      | 64           | 2.45221   |
+| 8                      | 68           | 2.38298   |
+| 9                      | 72           | 2.31194   |
+| 10                     | 76           | 2.25341   |
+| 11                     | 80           | 2.19402   |

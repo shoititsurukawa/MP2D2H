@@ -20,11 +20,16 @@ Output:
 clear; clc; close all;
 tic
 
-%% Parameters
-num_of_parts   = 4;
-
 %% Path
 current_folder = fileparts(mfilename('fullpath'));
+
+%% Importing Metadata
+meta_file = fullfile(current_folder, 'metadata_part1.mat');
+
+assert(isfile(meta_file), 'Metadata file not found: %s', meta_file);
+
+tmp = load(meta_file);
+num_of_parts = tmp.meta.num_of_parts;
 
 %% Loop over all parts
 for k = 1:num_of_parts
@@ -32,22 +37,18 @@ for k = 1:num_of_parts
     fprintf('Processing part %d / %d\n', k, num_of_parts);
 
     %% Importing Cadence Data
-    cadence_file = fullfile(current_folder, ...
-        sprintf('output_pa_part%d.csv', k));
+    cadence_file = fullfile(current_folder, sprintf('output_pa_part%d.csv', k));
 
-    assert(isfile(cadence_file), ...
-        'Cadence output not found: %s', cadence_file);
+    assert(isfile(cadence_file), 'Cadence output not found: %s', cadence_file);
 
     output_data = readmatrix(cadence_file);
     time_out = output_data(:,1);
     signal_out = output_data(:,2);
 
     %% Importing Metadata
-    meta_file = fullfile(current_folder, ...
-        sprintf('transmitted_signal_part%d_meta.mat', k));
+    meta_file = fullfile(current_folder, sprintf('metadata_part%d.mat', k));
 
-    assert(isfile(meta_file), ...
-        'Metadata file not found: %s', meta_file);
+    assert(isfile(meta_file), 'Metadata file not found: %s', meta_file);
 
     meta = load(meta_file);
     time_part = meta.meta.time_part;

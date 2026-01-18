@@ -9,16 +9,16 @@ Input:
 
 Output:
   - transmitted_signal_part1.pwl
-  - transmitted_signal_part1_meta.mat
+  - metadata_part1.mat
   - transmitted_signal_part2.pwl
-  - transmitted_signal_part2_meta.mat
+  - metadata_part2.mat
   - ...
 %}
 clear; clc; close all;
 tic
 
 %% Parameters
-num_of_parts = 4;
+num_of_parts = 12;
 overlap = 100e3;
 
 %% Import data
@@ -77,18 +77,13 @@ for k = 1:num_of_parts
     fclose(fid);
     
     %% Save metadata
-    meta.part_id   = k;
-    meta.start_idx = start_idx;
-    meta.end_idx   = end_idx;
-    meta.num_parts = num_of_parts;
-    meta.N_total   = N;
-    meta.overlap   = overlap;
-    meta.time_start_original = time_oversampled(start_idx);
-    meta.time_end_original   = time_oversampled(end_idx);
+    meta.N_total = N;
+    meta.num_of_parts = num_of_parts;
+    meta.overlap = overlap;
     meta.time_part = time_part;
 
     meta_file = fullfile(current_folder, ...
-        sprintf('transmitted_signal_part%d_meta.mat', k));
+        sprintf('metadata_part%d.mat', k));
 
     save(meta_file, 'meta');
     

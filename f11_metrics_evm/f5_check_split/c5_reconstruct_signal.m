@@ -7,9 +7,9 @@ Description:
 
 Input:
   - resampled_part1.mat
-  - transmitted_signal_part1_meta.mat
+  - metadata_part1.mat
   - resampled_part2.mat
-  - transmitted_signal_part2_meta.mat
+  - metadata_part2.mat
   - ...
 
 Output:
@@ -18,17 +18,17 @@ Output:
 clear; clc; close all;
 tic
 
-%% Parameters
-num_of_parts = 4;
-
 %% Path
 current_folder = fileparts(mfilename('fullpath'));
 
-%% Load metadata from first part
-m0 = load(fullfile(current_folder, 'transmitted_signal_part1_meta.mat'));
-meta0 = m0.meta;
+%% Importing Metadata
+meta_file = fullfile(current_folder, 'metadata_part1.mat');
 
-N = meta0.N_total;
+assert(isfile(meta_file), 'Metadata file not found: %s', meta_file);
+
+tmp = load(meta_file);
+num_of_parts = tmp.meta.num_of_parts;
+N = tmp.meta.N_total;
 
 %% Preallocate
 signal_out_resampled = zeros(N,1);
@@ -41,8 +41,7 @@ write_idx = 1;
 for k = 1:num_of_parts
 
     %% Load metadata
-    meta_file = fullfile(current_folder, ...
-        sprintf('transmitted_signal_part%d_meta.mat', k));
+    meta_file = fullfile(current_folder, sprintf('metadata_part%d.mat', k));
     meta = load(meta_file);
     meta = meta.meta;
 
@@ -61,7 +60,7 @@ for k = 1:num_of_parts
     end
 
     signal_keep = signal_part(keep_idx);
-    time_keep   = time_part(keep_idx);
+    time_keep = time_part(keep_idx);
 
     %% Time alignment
     if write_idx > 1
