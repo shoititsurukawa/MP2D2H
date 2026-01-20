@@ -15,40 +15,40 @@ All simulations were executed using the same PA described in [1].
 
 ## Folder Structure
 
- - f0_function
+ - f0_function  
 Contains general-purpose MATLAB functions used throughout the project.
 
- - f1_source_data
+ - f1_source_data  
 Contains the input signal (LTE and WLAN11N).
 
- - f2_pa_mod
+ - f2_pa_mod  
 Contains scripts for PA modulation.
 
- - f3_pa_demod
+ - f3_pa_demod  
 Contains scripts for PA demodulation.
 
- - f4_dpd1_mod
+ - f4_dpd1_mod  
 Contains scripts for the first DPD modulation iteration.
 
- - f5_dpd1_demod
+ - f5_dpd1_demod  
 Contains scripts for the first DPD demodulation iteration.
 
- - f6_dpd2_mod
+ - f6_dpd2_mod  
 Contains scripts for the second DPD modulation iteration.
 
- - f7_dpd2_demod
+ - f7_dpd2_demod  
 Contains scripts for the second DPD demodulation iteration.
 
- - f8_metrics_pae
-Contains scripts to compute power-added efficiency (PAE) and drain_efficiency.
+ - f8_metrics_pae  
+Contains scripts to compute power-added efficiency (PAE) and drain efficiency.
 
- - f9_adjust_output_power
+ - f9_adjust_output_power  
 Contains scripts used to adjust and equalize output power levels.
 
- - f10_metrics_psd
+ - f10_metrics_psd  
 Contains scripts to compute power spectral density (PSD).
 
-- f11_metrics_evm
+- f11_metrics_evm  
 Contains scripts to compute error vector magnitude (EVM).
 
 Note: In both folders and scripts, the term "check" is used for intermediate verification and debugging purposes and may be ignored.

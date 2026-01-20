@@ -74,3 +74,18 @@ In the next step, the goal is to process the full 1 ms frame using segmented sim
 To address this, the signal was further split into a larger number of segments (12). However, before committing to a long full-frame simulation, the segmentation approach was re-evaluated using the shorter 80 µs signal. This test revealed a significant degradation in EVM as the number of segments increased, indicating that a higher number of segments introduces additional numerical distortion.
 
 Based on this observation, the next simulations will be performed using 6 segments, which represents a compromise between simulation time and numerical accuracy. This configuration is expected to complete within the 24-hour limit while avoiding excessive degradation due to segmentation.
+
+## f6_compute_evm
+
+Simulation using the full 1 ms frame, divided into six segments:
+
+| Part | Elapsed Time (Wall Clock) | Storage |
+|------|---------------------------|---------|
+| 1    | 46.8 ks (13h 0m 24s)      | 45 GB   |
+| 2    |        |   |
+| 3    |        |   |
+| 4    |        |   |
+| 5    |        |   |
+| 6    |        |   |
+
+
