@@ -1,6 +1,7 @@
-# Raw Cadence waveform and piecewise-linear files
+# Cadence related files
 *.csv
 *.pwl
+*.out
 
 # MATLAB data files (kept in external storage)
 *.mat
