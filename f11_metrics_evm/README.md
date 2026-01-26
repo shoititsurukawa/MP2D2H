@@ -55,9 +55,9 @@ In this part the DPD was implemented, and the signal was passed in the PA. Previ
 
 ## f5_check_split
 
-This stage follows the same procedure as f4_check_dpd_pa. However, instead of performing the simulation in a single run, the process is split into four segments, which are simulated independently and then recombined.
+This stage follows the same procedure as f4_check_dpd_pa. However, instead of performing the simulation in a single run, the process is split into segments, which are simulated independently and then recombined.
 
-### Test: Splitting into Segments
+### Segmentation Trade-offs and Constraints
 
 | Signal   | num_of_parts | EVM (%)   |
 |----------|--------------|-----------|
@@ -66,8 +66,6 @@ This stage follows the same procedure as f4_check_dpd_pa. However, instead of pe
 | WLAN11N  |  12          | 2.19402   |
 
 Note: Only the first 80 µs of the frame is used in these tests.
-
-### Segmentation Trade-offs and Constraints
 
 In the next step, the goal is to process the full 1 ms frame using segmented simulations. When using only 4 segments, the simulation time of the first segment was excessively long. Since the compute server automatically resets every 24 hours, it was not possible to complete even a single simulation segment.
 
@@ -81,11 +79,17 @@ Simulation using the full 1 ms frame, divided into six segments:
 
 | Part | Elapsed Time (Wall Clock) | Storage |
 |------|---------------------------|---------|
-| 1    | 46.8 ks (13h 0m 24s)      | 45 GB   |
-| 2    |        |   |
-| 3    |        |   |
-| 4    |        |   |
-| 5    |        |   |
-| 6    |        |   |
+| 1    | 46.8 ks (13h 0m 24s)      | 45 GB   | 
+| 2    | 50.9 ks (14h 8m 25s)      | 47 GB   |
+| 3    | 47.6 ks (13h 13m 37s)     | 45 GB   |
+| 4    | 55.3 ks (15h 22m 16s)     | 49 GB   |
+| 5    | 51.7 ks (14h 21m 42s)     | 48 GB   |
+| 6    | 15 ks (4h 10m 10s)        | 20 GB   |
 
+The simulation is currently not working. The suspected issue is in segment 6, where at approximately 148 µs the input voltage suddenly rises to about 7.5 V, after which the signal is lost.
 
+Despite this issue, it was still possible to run the simulation and compute the EVM for the WLAN11N signal using 11 data symbols, resulting in an EVM of approximately 140 %.
+
+However, when attempting to compute the EVM for the LTE signal, the following error occurred, even though no Cadence settings had been changed:
+
+ERROR (SPCRTRF-15357): Cannot perform measurement because wprobe 'WPRB1' is not synchronized. To solve the problem, verify that: 1) The wireless probe is connected to the first harmonic of the envelope signal. When the wireless source is set to baseband mode, the frequency of the LO sources in the circuit must be set to the frequency set in the envelope analysis. This is usually set by the W0_wfreq variable. 2) If there is a delay in the circuit at the point connected to the wireless probe, increase the number of frames in the wireless source and rerun the simulation so that at least one full frame is present at the probe to be decoded. 3) Decrease the delay time if it is too long.
