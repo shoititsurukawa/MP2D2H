@@ -1,15 +1,20 @@
 ## Authors
 
-Luiz Augusto Shoiti Tsurukawa - shoiti.tsurukawa@gmail.com  
-Luis Schuartz - luisschuartz@ufpr.br  
-Eduardo Goncalves de Lima - eduardo.lima@ufpr.br
+PhD Student: Luiz Augusto Shoiti Tsurukawa  
+Email: shoiti.tsurukawa@gmail.com | shoiti.tsurukawa@ufpr.br
+
+Co-advisor: Prof. Dr. Luis Schuartz  
+Email: luisschuartz@ufpr.br
+
+Advisor: Prof. Dr. Eduardo Gonçalves de Lima  
+Email: eduardo.lima@ufpr.br
 
 ## MP2D2H
 
-MP2D2H stands for Memory Polynomial, Two-Dimensional (dual-channel), with two carrier harmonics. This project implements a dual-band digital predistortion (DPD) framework for power amplifier linearization, where the second carrier frequency is the second harmonic of the first (2 GHz and 4 GHz).
+MP2D2H stands for Memory Polynomial, 2-Dimensional (dual-channel), where the second carrier is located at the 2nd Harmonic frequency of the first (2 GHz and 4 GHz). This project implements a digital predistortion (DPD) framework for power amplifier linearization.
 
-Signal 1 corresponds to an LTE signal with a carrier frequency of 2 GHz.  
-Signal 2 corresponds to a WLAN11N signal with a carrier frequency of 4 GHz.
+Signal 1 corresponds to an LTE signal centered at a carrier frequency of 2 GHz.  
+Signal 2 corresponds to a WLAN11N signal centered at a carrier frequency of 4 GHz.
 
 All simulations were executed using the same PA described in [1].
 
